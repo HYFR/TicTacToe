@@ -14,9 +14,11 @@ until not brd.include?(" ") or (lines(brd).find{|line| line[0] != " " and line.u
   move = gets.to_i
   while(brd[move] != " ")
     print "#{move} is not valid. Enter a valid move for #{plrs[0]}:  "
-    move = gets.to_i
+    move = gets.to_i	
   end
   brd[move]=plrs[0]
+  plrs.rotate!
+  brd[move+1] = plrs[0]
   plrs.rotate!
 end
 
