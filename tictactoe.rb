@@ -18,7 +18,11 @@ until not brd.include?(" ") or (lines(brd).find{|line| line[0] != " " and line.u
   end
   brd[move]=plrs[0]
   plrs.rotate!
-  brd[(move+1)%9] = plrs[0]
+  move = (move+1)%9
+  while(brd[move] != " ")
+	move = (move+1)%9
+  end
+  brd[move] = plrs[0]
   plrs.rotate!
 end
 
